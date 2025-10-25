@@ -8,7 +8,7 @@ export default function Projects() {
                 "Building a Visual Question Answering (VQA) system with semantic attention to contextually interpret flood scene conditions.",
             ],
             tags: ["Deep Learning", "Semantic Segmentation", "VQA", "Computer Vision", "NLP"],
-            image: "/src/assets/projects/post_flood_analysis.png",
+            image: "/projects/post_flood_analysis.png",
         },
         {
             title: 'Crowd Counting',
@@ -19,7 +19,7 @@ export default function Projects() {
                 "Ensemble the results using Weighted Ensemble ",
             ],
             tags: ["Deep Learning", "Computer Vision"],
-            image: "/src/assets/projects/crowd_counting.jpeg",
+            image: "/projects/crowd_counting.jpeg",
         },
         {
             title: 'Prison Sentences Prediction Using Advanced Text Extraction & Ensemble Learning',
@@ -39,7 +39,7 @@ export default function Projects() {
                 "Building a Visual Question Answering (VQA) system with semantic attention to contextually interpret flood scene conditions.",
             ],
             tags: ["Computer Vision", "OCR", "Time Series", "Machine Learning"],
-            image: "/src/assets/flood_project.jpg",
+            image: "/flood_project.jpg",
         },
         {
             title: 'House Price Prediction Using Multimodal Deep Learning',
@@ -49,7 +49,7 @@ export default function Projects() {
                 "Building Multimodal Deep Learning model combined image extracted with DINOv2 and text extracted with IndoBERT.",
             ],
             tags: ["Compter Vision", "NLP", "Multimodal"],
-            image: "/src/assets/projects/house_price_prediction.jpeg",
+            image: "/projects/house_price_prediction.jpeg",
         },
         {
             title: 'Healt Care Assistant: Boosting RAG with Reciprocal Rank Fusion',
