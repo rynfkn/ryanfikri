@@ -4,21 +4,21 @@ export default function Projects() {
             title: 'Post-Flood Analysis With Semantic Segmentation & VQA',
             year: 2025,
             descriptions: [
-                "Developing an Image Semantic Segmentation model using a hybrid U-Net + DeepLabV3+ architecture to map the affected flood areas from UAV imagery",
-                "Building a Visual Question Answering (VQA) system with semantic attention to contextually interpret flood scene conditions.",
+                "Designed a hybrid U-Net + DeepLabV3+ model for high-resolution flood area segmentation from UAV imagery.",
+                "Developed a Visual Question Answering (VQA) system with semantic attention to interpret post-flood scene conditions contextually.",
             ],
             tags: ["Deep Learning", "Semantic Segmentation", "VQA", "Computer Vision", "NLP"],
             image: "/projects/post_flood_analysis.png",
         },
         {
-            title: 'Crowd Counting',
+            title: 'Enhancing Public Safety with Intelligent Crowd Monitoring',
             year: 2025,
             descriptions: [
-                "Builing Crowd Counting model using CSRNet Architecture with different backbone such as Resnet50, Efficienet, and ConvNext",
-                "Apply image preprocessing to enhance the quality of the image",
-                "Ensemble the results using Weighted Ensemble ",
+                "Built a crowd counting system using CSRNet with multiple backbones (ResNet50, EfficientNet, ConvNeXt).",
+                "Applied advanced image preprocessing and density map generation to enhance model robustness.",
+                "Implemented a weighted ensemble strategy to achieve balanced performance across crowd densities.",
             ],
-            tags: ["Deep Learning", "Computer Vision"],
+            tags: ["Deep Learning", "Computer Vision", "Crowd Counting"],
             image: "/projects/crowd_counting.jpeg",
         },
         {
@@ -29,37 +29,39 @@ export default function Projects() {
                 "Building a Visual Question Answering (VQA) system with semantic attention to contextually interpret flood scene conditions.",
             ],
             tags: ["NLP", "Machine Learning", "Text Extraction", "Ensemble"],
-            image: "/src/assets/flood_project.jpg",
+            image: "/projects/prison_sentence_prediction.jpg",
         },
         {
-            title: 'Rainfall Prediction with OCR',
+            title: 'Rainfall Modeling Based on OCR Extraction and Ensemble Time Series Forecasting',
             year: 2025,
             descriptions: [
                 "Developing an Image Semantic Segmentation model using a hybrid U-Net + DeepLabV3+ architecture to map the affected flood areas from UAV imagery",
                 "Building a Visual Question Answering (VQA) system with semantic attention to contextually interpret flood scene conditions.",
             ],
             tags: ["Computer Vision", "OCR", "Time Series", "Machine Learning"],
-            image: "/flood_project.jpg",
+            image: "/projects/time_series_forecasting.png",
         },
         {
             title: 'House Price Prediction Using Multimodal Deep Learning',
             year: 2025,
             descriptions: [
-                "Scrapping data from the internet using Selenium",
-                "Building Multimodal Deep Learning model combined image extracted with DINOv2 and text extracted with IndoBERT.",
+                "Collected and cleaned real estate data through automated web scraping using Selenium.",
+                "Developed a multimodal deep learning model combining image embeddings (DINOv2) and textual features (IndoBERT).",
+                "Achieved improved model performance through intermediate-fusion of visual, textual, and tabular modalities.",
             ],
-            tags: ["Compter Vision", "NLP", "Multimodal"],
-            image: "/projects/house_price_prediction.jpeg",
+            tags: ["Compter Vision", "NLP", "Multimodal Learning"],
+            image: "/projects/house_price_prediction.jpg",
         },
         {
-            title: 'Healt Care Assistant: Boosting RAG with Reciprocal Rank Fusion',
+            title: 'Enhancing Healthcare RAG Using Reciprocal Rank Fusion',
             year: 2025,
             descriptions: [
-                "Scrapping data from the internet using Selenium",
-                "Building Multimodal Deep Learning model combined image extracted with DINOv2 and text extracted with IndoBERT.",
+                "Scrapping medical data article from the internet using Selenium",
+                "Implemented a Retrieval-Augmented Generation (RAG) pipeline for medical question answering.",
+                "Enhanced retrieval relevance using Reciprocal Rank Fusion (RRF) across multiple search backends.",
             ],
-            tags: ["NLP", "RAG", "LLM"],
-            image: "/src/assets/projects/",
+            tags: ["NLP", "RAG", "LLM", "Information Retrieval"],
+            image: "/projects/RAG_RRF.png",
         },
     ]
 
@@ -82,11 +84,11 @@ export default function Projects() {
                         className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}
                     >
 
-                        <div className="md:w-1/2 w-full">
+                        <div className="md:w-1/2 w-full aspect-[16/10] rounded-2xl overflow-hidden">
                             <img
                                 src={project.image}
                                 alt={project.title}
-                                className="w-full object-cover rounded-2xl shadow-lg hover:opacity-90 transtition"
+                                className="w-full h-full object-cover rounded-2xl shadow-lg hover:opacity-90 transition-transform duration-300 hover:scale-105"
                             />
                         </div>
 

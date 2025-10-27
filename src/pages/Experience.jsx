@@ -8,9 +8,8 @@ export default function Experience() {
       institution: "Intelegent System & Computing",
       skills: ["AI", "Machine Learning", "Data Science"],
       jobdesk: [
-        "Developed and optimized RESTful APIs for event registration and transaction systems.",
-        "Integrated backend services with PostgreSQL and handled database schema design.",
-        "Collaborated with frontend team to ensure seamless data flow.",
+        "Making a course on Unsupervised Learning",
+        "Participated in social community activities to teach sratch programming to elementary student"
       ],
     },
     {
@@ -20,8 +19,6 @@ export default function Experience() {
       skills: ["Go", "PostgreSQL", "Git"],
       jobdesk: [
         "Developed and optimized RESTful APIs for event registration and transaction systems.",
-        "Integrated backend services with PostgreSQL and handled database schema design.",
-        "Collaborated with frontend team to ensure seamless data flow.",
       ],
     },
     {
@@ -31,8 +28,6 @@ export default function Experience() {
       skills: ["Next.js", "TailwindCSS", "Git"],
       jobdesk: [
         "Built responsive user interfaces for event management systems.",
-        "Integrated APIs for real-time schedule and participant updates.",
-        "Implemented reusable UI components and improved site accessibility.",
       ],
     },
     {
