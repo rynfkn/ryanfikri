@@ -44,14 +44,14 @@ export default function Experience() {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-12 px-6 text-white bg-[#121212]">
+    <div className="flex flex-col items-center justify-center min-h-screen py-12 px-6 text-[var(--color-text)] bg-[var(--color-base)] transition-colors duration-300">
 
       <div className="w-full max-w-5xl mb-16">
-        <div className='items-center mb-10 border-b pb-4'>
+        <div className='items-center mb-10 border-b border-[var(--color-muted)]/30 pb-4'>
           <h1 className="text-4xl font-bold text-gradient">
             EDUCATION
           </h1>
-          <p className='text-lg italic text-gray-400'>Scientia, Art et Virtute</p>
+          <p className='text-lg italic text-[var(--color-muted)]'>Scientia, Art et Virtute</p>
         </div>
 
         <div className='relative pl-8 md:pl-12'>
@@ -64,7 +64,7 @@ export default function Experience() {
               </div>
               <div className='ml-4 mb-4'>
                 <h1 className='text-2xl font-bold leading-tight text-[var(--color-primary)]'>Computer Science</h1>
-                <p className="text-xl font-semibold mt-1">Sepuluh Nopember Institute of Technology</p> <p className="text-sm text-gray-500 italic mb-3">2023 - Present</p>
+                <p className="text-xl font-semibold mt-1">Sepuluh Nopember Institute of Technology</p> <p className="text-sm text-[var(--color-muted)] italic mb-3">2023 - Present</p>
               
                 <p className="text-base mt-2"> <span className="font-medium">GPA:</span> 3.81/4 </p>
 
@@ -77,7 +77,7 @@ export default function Experience() {
               </div>
               <div className='ml-4 mb-4'>
                 <h1 className='text-2xl font-bold leading-tight text-[var(--color-primary)]'>Natural Science</h1>
-                <p className="text-xl font-semibold mt-1">SMA Negeri 3 Samarinda</p> <p className="text-sm text-gray-500 italic mb-3">2020 - 2023</p>
+                <p className="text-xl font-semibold mt-1">SMA Negeri 3 Samarinda</p> <p className="text-sm text-[var(--color-muted)] italic mb-3">2020 - 2023</p>
               
                 <p className="text-base mt-2"> <span className="font-medium">GPA:</span> 85/100 </p>
 
@@ -90,11 +90,11 @@ export default function Experience() {
       </div>
 
       <div className='w-full max-w-5xl mb-16'>
-        <div className='items-center mb-10 border-b pb-4'>
+        <div className='items-center mb-10 border-b border-[var(--color-muted)]/30 pb-4'>
           <h1 className="text-4xl font-bold text-gradient">
             EXPERIENCES
           </h1>
-          <p className='text-lg italic text-gray-400'>Deployed knowledge, debugged by reality.</p>
+          <p className='text-lg italic text-[var(--color-muted)]'>Deployed knowledge, debugged by reality.</p>
         </div>
 
         <div className='relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-y-12'>
@@ -104,13 +104,13 @@ export default function Experience() {
               key={index}
               className='relative group transition-all duration-500'
             >
-              <div className='bg-[#1a1a1a] p-6 rounded-xl border border-gray-800'>
+              <div className='bg-[var(--color-base)] p-6 rounded-xl border border-[var(--color-muted)]/30 shadow-sm'>
                 <h1 className='text-2xl font-bold mb-1'>{exp.position}</h1>
-                <p className='text-lg text-gray-300'>{exp.institution}</p>
-                <p className='text-sm text-gray-400 mb-4'>{exp.timeline}</p>
+                <p className='text-lg text-[var(--color-muted)]'>{exp.institution}</p>
+                <p className='text-sm text-[var(--color-muted)] mb-4'>{exp.timeline}</p>
 
 
-                <div className='flex flex-wrap gap-4 pt-4 border-t border-gray-700'>
+                <div className='flex flex-wrap gap-4 pt-4 border-t border-[var(--color-muted)]/30'>
                   {exp.skills.map((skill, i) => (
                     <span
                       key={i}
@@ -121,10 +121,10 @@ export default function Experience() {
                 </div>
               </div>
 
-              <div className='absolute top-0 left-0 right-0 bg-[#1A1A1A] rounded-xl border hover:border-[var(--color-primary)] p-6 opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-all duration-500 z-20'>
+              <div className='absolute top-0 left-0 right-0 bg-[var(--color-base)] rounded-xl border border-[var(--color-muted)]/30 hover:border-[var(--color-primary)] p-6 opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-all duration-500 z-20 shadow-lg'>
                 <h1 className='text-2xl font-bold mb-1'>{exp.position}</h1>
-                <p className='text-lg text-gray-300'>{exp.institution}</p>
-                <p className='text-sm text-gray-400 mb-3'>{exp.timeline}</p>
+                <p className='text-lg text-[var(--color-muted)]'>{exp.institution}</p>
+                <p className='text-sm text-[var(--color-muted)] mb-3'>{exp.timeline}</p>
 
                 <div className='mb-4'>
 
@@ -135,7 +135,7 @@ export default function Experience() {
                   </h2>
 
 
-                  <ul className='list-disc text-sm pl-5 space-y-2 text-gray-300'>
+                  <ul className='list-disc text-sm pl-5 space-y-2 text-[var(--color-muted)]'>
                     {exp.jobdesk.map((job, i) => (
                       <li
                         key={i}
@@ -147,7 +147,7 @@ export default function Experience() {
                   </ul>
                 </div>
 
-                <div className='flex flex-wrap gap-2 pt-2 border-t border-gray-700'>
+                <div className='flex flex-wrap gap-2 pt-2 border-t border-[var(--color-muted)]/30'>
                   {exp.skills.map((skill, i) => (
                     <span
                       key={i}

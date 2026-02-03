@@ -157,13 +157,13 @@ export default function Gallery() {
     const filteredImages = selectedCategory === 'All' ? images : images.filter((img) => img.imageCategory === selectedCategory);
 
     return (
-        <div className="flex flex-col justify-center items-center w-full min-h-screen text-white py-12 px-6">
+        <div className="flex flex-col justify-center items-center w-full min-h-screen text-[var(--color-text)] py-12 px-6 transition-colors duration-300">
             <div className="w-full max-w-5xl mb-10">
-                <div className='items-center mb-10 border-b pb-4'>
+                <div className='items-center mb-10 border-b border-[var(--color-muted)]/30 pb-4'>
                     <h1 className="text-4xl font-bold text-gradient">
                         GALLERY
                     </h1>
-                    <p className='text-lg italic text-gray-400'>Every frame holds a memory, every memory tells a story.</p>
+                    <p className='text-lg italic text-[var(--color-muted)]'>Every frame holds a memory, every memory tells a story.</p>
                 </div>
             </div>
 
@@ -172,8 +172,8 @@ export default function Gallery() {
                     <button
                         key={cat}
                         onClick={() => setSelectedCategories(cat)}
-                        className={`px-4 py-2 rounded-full text-sm transition-all duration-200 ${selectedCategory === cat ? "font-bold text-white bg-[var(--color-primary)]" : "bg-[#1a1a1a] text-gray-300"
-                            }`}
+                        className={`px-4 py-2 rounded-full text-sm transition-all duration-200 ${selectedCategory === cat ? "font-bold text-white bg-[var(--color-primary)]" : "bg-[var(--color-base)] border border-[var(--color-muted)]/30 text-[var(--color-muted)] hover:border-[var(--color-primary)]"}
+                            `}
                     >
                         {cat}
                     </button>

@@ -47,7 +47,7 @@ export default function Home() {
     }, [displayText, isDeleting, currentRole, roles]);
 
     return (
-        <div className="relative min-h-screen w-full bg-[#121212] text-white overflow-hidden">
+        <div className="relative min-h-screen w-full bg-[var(--color-base)] text-[var(--color-text)] overflow-hidden transition-colors duration-300">
 
             {showWelcome && <WelcomeSplash onComplete={() => setShowWelcome(false)} />}
 
@@ -74,11 +74,11 @@ export default function Home() {
                             RYAN FIKRI NUGRAHA
                         </h1>
 
-                        <div className="flex justify-center lg:justify-start text-2xl md:text-3xl lg:text-4xl text-gray-300 font-light mb-8 h-12 md:h-14">
+                        <div className="flex justify-center lg:justify-start text-2xl md:text-3xl lg:text-4xl text-[var(--color-muted)] font-light mb-8 h-12 md:h-14">
                             {displayText}
                         </div>
 
-                        <p className="text-gray-400 text-sm md:text-base lg:text-lg max-w-xl mb-8 leading-relaxed mx-auto lg:mx-0 animate-fade-in-delay">
+                        <p className="text-[var(--color-muted)] text-sm md:text-base lg:text-lg max-w-xl mb-8 leading-relaxed mx-auto lg:mx-0 animate-fade-in-delay">
                             Passionate about building intelligent systems and exploring the frontiers of artificial intelligence.
                             Turning complex problems into elegant solutions through code.
                         </p>
@@ -88,7 +88,7 @@ export default function Home() {
                                 href="https://linkedin.com/in/ryanfkn"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-400 hover:text-blue-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
+                                className="text-[var(--color-muted)] hover:text-blue-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
                                 aria-label="Visit my LinkedIn profile"
                             >
                                 <FaLinkedin />
@@ -97,7 +97,7 @@ export default function Home() {
                                 href="https://github.com/rynfkn"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
+                                className="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
                                 aria-label="Visit my GitHub profile"
                             >
                                 <FaGithub />
@@ -106,7 +106,7 @@ export default function Home() {
                                 href="https://instagram.com/rynfkn.re"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-400 hover:text-pink-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
+                                className="text-[var(--color-muted)] hover:text-pink-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
                                 aria-label="Visit my Instagram profile"
                             >
                                 <FaInstagram />
@@ -114,7 +114,7 @@ export default function Home() {
                             <a
                                 href="https://its.id/m/RyanCV2025"
                                 target="_blank"
-                                className="text-gray-400 hover:text-red-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
+                                className="text-[var(--color-muted)] hover:text-red-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
                                 aria-label="Download CV"
                             >
                                 <FaFilePdf />

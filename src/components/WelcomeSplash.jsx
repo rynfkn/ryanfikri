@@ -45,7 +45,7 @@ const WelcomeSplash = ({ duration = 1250, onComplete }) => {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#121212] text-white"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[var(--color-base)] text-[var(--color-text)] transition-colors duration-300"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{

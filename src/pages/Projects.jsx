@@ -66,13 +66,13 @@ export default function Projects() {
     ]
 
     return (
-        <div className="flex flex-col justify-center items-center w-full min-h-screen bg-[#121212] text-white py-12 px-6">
+        <div className="flex flex-col justify-center items-center w-full min-h-screen bg-[var(--color-base)] text-[var(--color-text)] py-12 px-6 transition-colors duration-300">
             <div className="w-full max-w-5xl mb-10">
-                <div className='items-center mb-10 border-b pb-4'>
+                <div className='items-center mb-10 border-b border-[var(--color-muted)]/30 pb-4'>
                     <h1 className="text-4xl font-bold text-gradient">
                         PROJECTS
                     </h1>
-                    <p className='text-lg italic text-gray-400'>Turning Ideas into Reality through Code</p>
+                    <p className='text-lg italic text-[var(--color-muted)]'>Turning Ideas into Reality through Code</p>
                 </div>
             </div>
 
@@ -98,7 +98,7 @@ export default function Projects() {
                             {project.descriptions.map((desc, i) => (
                                 <p
                                     index={i}
-                                    className="text-gray-300 leading-relaxed">
+                                    className="text-[var(--color-muted)] leading-relaxed">
                                     {desc}
                                 </p>
                             ))}

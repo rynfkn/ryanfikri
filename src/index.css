@@ -10,6 +10,12 @@
   --color-muted: #9CA3AF;
 }
 
+.light {
+  --color-base: #FFFFFF;
+  --color-text: #1F2937;
+  --color-muted: #6B7280;
+}
+
 .text-gradient {
   background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
   -webkit-background-clip: text;

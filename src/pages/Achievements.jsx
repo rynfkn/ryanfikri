@@ -53,13 +53,13 @@ export default function Achievement() {
     ]
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-[#121212] text-white py-12 px-6 overflow-hidden y-auto">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-[var(--color-base)] text-[var(--color-text)] py-12 px-6 overflow-hidden y-auto transition-colors duration-300">
             <div className="w-full max-w-5xl mb-10">
-                <div className='items-center mb-10 border-b pb-4'>
+                <div className='items-center mb-10 border-b border-[var(--color-muted)]/30 pb-4'>
                     <h1 className="text-4xl font-bold text-gradient">
                         ACHIEVEMENTS
                     </h1>
-                    <p className='text-lg italic text-gray-400'>Strive not to be a success, but rather to be of value — Albert Einstein</p>
+                    <p className='text-lg italic text-[var(--color-muted)]'>Strive not to be a success, but rather to be of value — Albert Einstein</p>
                 </div>
             </div>
 
@@ -67,11 +67,11 @@ export default function Achievement() {
                 {achievements.map((item, index) => (
                     <div
                         key={index}
-                        className="bg-[#1a1a1a] border border-gray-700 hover:border-[var(--color-primary)] rounded-2xl p-6 ">
+                        className="bg-[var(--color-base)] border border-[var(--color-muted)]/30 hover:border-[var(--color-primary)] rounded-2xl p-6 shadow-sm transition-colors duration-300">
                         <h2 className="text-2xl font-bold mb-1 text-[var(--color-primary)]">{item.title}</h2>
-                        <p className="text-lg text-gray-300">{item.event}</p>
-                        <p className="text-sm text-gray-500 italic mb-4">{item.year}</p>
-                        <p className="text-gray-400 mb-4 leading-relaxed">{item.descriptioin}</p>
+                        <p className="text-lg text-[var(--color-muted)]">{item.event}</p>
+                        <p className="text-sm text-[var(--color-muted)] italic mb-4">{item.year}</p>
+                        <p className="text-[var(--color-muted)] mb-4 leading-relaxed">{item.descriptioin}</p>
 
                         <div className="flex flex-wrap gap-2 mt-auto">
                             {item.tags.map((tag, i) => (
