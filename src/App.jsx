@@ -10,10 +10,10 @@ import Gallery from "./pages/Gallery";
 
 function App() {
   return (
-    
+
     <>
-      <Navbar />
       <Router>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/experiences" element={<Experience />} />

@@ -1,11 +1,10 @@
-import { FaRegImages, FaRobot, FaSun, FaMoon } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import {
     Image, Sun, Moon, Briefcase, Award, FolderOpen, Home as HomeIcon, Menu,
     X,
 } from "lucide-react";
 
 import { useState } from "react";
-import { a, div, link } from "framer-motion/client";
 
 export default function Navbar() {
 
@@ -29,9 +28,11 @@ export default function Navbar() {
     return (
         <nav className="sticky top-0 z-30 flex items-center justify-evenly px-4 sm:px-10 py-4 bg-[#121212]/95 text-white ring-1 ring-white/5 backdrop-blur-sm">
 
-            <div className="text-2xl font-extrabold select-none">
+            <Link
+                to='/'
+                className="text-2xl font-extrabold select-none">
                 Ry.
-            </div>
+            </Link>
 
             <div className="hidden lg:flex gap-8 text-md font-semibold tracking-wide">
                 {navlinks.map((link) => (
