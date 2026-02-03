@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import WelcomeSplash from "../components/WelcomeSplash";
 
 import { FaLinkedin, FaGithub, FaInstagram, FaFilePdf } from "react-icons/fa";
@@ -84,7 +85,7 @@ export default function Home() {
 
                         <div className="flex gap-6 pt-2 text-3xl md:text-4xl justify-center lg:justify-start">
                             <a
-                                href="https://linkedin.com/in/yourprofile"
+                                href="https://linkedin.com/in/ryanfkn"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-400 hover:text-blue-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
@@ -93,7 +94,7 @@ export default function Home() {
                                 <FaLinkedin />
                             </a>
                             <a
-                                href="https://github.com/yourusername"
+                                href="https://github.com/rynfkn"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
@@ -102,7 +103,7 @@ export default function Home() {
                                 <FaGithub />
                             </a>
                             <a
-                                href="https://instagram.com/yourusername"
+                                href="https://instagram.com/rynfkn.re"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-400 hover:text-pink-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
@@ -111,8 +112,8 @@ export default function Home() {
                                 <FaInstagram />
                             </a>
                             <a
-                                href="/Ryan_Fikri_CV.pdf"
-                                download
+                                href="https://its.id/m/RyanCV2025"
+                                target="_blank"
                                 className="text-gray-400 hover:text-red-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
                                 aria-label="Download CV"
                             >
@@ -121,23 +122,20 @@ export default function Home() {
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4 mt-10 justify-center lg:justify-start">
-                            <button
-                                className="px-8 py-3 rounded-lg border border-[var(--color-primary)] text-[var(--color-primary)]
-               font-medium tracking-wide transition-all duration-300
-               hover:bg-[var(--color-primary)] hover:text-white
-               focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50"
-                            >
-                                View Projects
-                            </button>
-
-                            <button
-                                className="px-8 py-3 rounded-lg border border-[var(--color-secondary)] text-[var(--color-secondary)]
-               font-medium tracking-wide transition-all duration-300
-               hover:bg-[var(--color-secondary)] hover:text-white
-               focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]/50"
+                            <Link to="/projects">
+                                <button
+                                    className="px-8 py-3 rounded-lg border border-[var(--color-primary)] text-[var(--color-primary)] font-medium tracking-wide transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50"
+                                >
+                                    View Projects
+                                </button>
+                            </Link>
+                            
+                            <a
+                                href="mailto:ryanfikri.re@gmail.com"
+                                className="px-8 py-3 rounded-lg border border-[var(--color-secondary)] text-[var(--color-secondary)] font-medium tracking-wide transition-all duration-300 hover:bg-[var(--color-secondary)] hover:text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]/50"
                             >
                                 Contact Me
-                            </button>
+                            </a>
                         </div>
 
                     </div>
