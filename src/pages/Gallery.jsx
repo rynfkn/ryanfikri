@@ -84,6 +84,11 @@ export default function Gallery() {
             imageCategory: 'KCV',
             image_description: 'Congrats mba!',
         },
+        {
+            image_path: '/gallery/kcv/kcv_bukber.jpg',
+            imageCategory: 'KCV',
+            image_description: 'KCV Bukber',
+        },
 
         {
             image_path: '/gallery/ITToday/Ittoday_1.jpeg',
