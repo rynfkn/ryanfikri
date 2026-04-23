@@ -57,6 +57,7 @@ export default function Gallery() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
+              aria-pressed={selectedCategory === cat}
               className={`text-xs uppercase tracking-widest transition-colors duration-200 pb-0.5 ${
                 selectedCategory === cat
                   ? 'text-[var(--color-text)] border-b border-[var(--color-primary)]'

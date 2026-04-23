@@ -57,6 +57,7 @@ export default function Navbar() {
         <button
           onClick={() => setIsDarkMode(prev => !prev)}
           className="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors duration-300"
+          aria-label={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
           title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
         >
           {isDarkMode ? <Moon size={18} /> : <Sun size={18} className="text-yellow-400" />}

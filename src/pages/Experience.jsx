@@ -3,10 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 
-export default function Experience() {
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const experiences = [
+const experiences = [
     {
       position: "Lab Administrator",
       timeline: "Dec 2024 – Mar 2025",
@@ -46,7 +43,10 @@ export default function Experience() {
         "Collaborated with the academic team to ensure question clarity.",
       ],
     },
-  ];
+];
+
+export default function Experience() {
+  const [openIndex, setOpenIndex] = useState(null);
 
   return (
     <div className="min-h-screen bg-[var(--color-base)] text-[var(--color-text)] transition-colors duration-300">
@@ -90,7 +90,7 @@ export default function Experience() {
 
             <div>
               {experiences.map((exp, index) => (
-                <div key={index} className="border-b border-[var(--color-muted)]/20">
+                <div key={exp.position} className="border-b border-[var(--color-muted)]/20">
                   <button
                     className="w-full py-5 flex justify-between items-start text-left cursor-pointer"
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}

@@ -35,7 +35,7 @@ export default function Home() {
           setDisplayText(currentWord.slice(0, displayText.length - 1));
         } else {
           setIsDeleting(false);
-          setCurrentRole((prev) => (prev + 1) % roles.length);
+          setCurrentRole((prev) => (prev + 1) % ROLES.length);
         }
       }
     }, typingSpeed);

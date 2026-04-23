@@ -1,7 +1,6 @@
 import FadeIn from '../components/FadeIn';
 
-export default function Achievement() {
-  const achievements = [
+const achievements = [
     {
       title: "Runner Up — Data Mining",
       event: "Hology 8.0, Brawijaya University",
@@ -51,8 +50,9 @@ export default function Achievement() {
       description: "Built a machine learning model to forecast weather conditions and predict electricity shutdowns.",
       tags: ["Machine Learning", "Time Series", "Classification"],
     },
-  ];
+];
 
+export default function Achievement() {
   return (
     <div className="min-h-screen bg-[var(--color-base)] text-[var(--color-text)] transition-colors duration-300">
       <div className="max-w-3xl mx-auto px-6 py-24">
@@ -64,7 +64,7 @@ export default function Achievement() {
 
         <div>
           {achievements.map((item, index) => (
-            <FadeIn key={index} delay={index * 0.04}>
+            <FadeIn key={item.title} delay={index * 0.04}>
               <div className="py-6 border-b border-[var(--color-muted)]/20">
                 <div className="flex justify-between items-baseline mb-1">
                   <h2 className="font-semibold text-lg">{item.title}</h2>
