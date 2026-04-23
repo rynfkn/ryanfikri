@@ -1,7 +1,6 @@
 import FadeIn from '../components/FadeIn';
 
-export default function Projects() {
-  const projects = [
+const projects = [
     {
       title: 'Post-Flood Analysis With Semantic Segmentation & VQA',
       year: 2025,
@@ -61,8 +60,9 @@ export default function Projects() {
       tags: ["NLP", "RAG", "LLM", "Information Retrieval"],
       image: "/projects/RAG_RRF.png",
     },
-  ];
+];
 
+export default function Projects() {
   return (
     <div className="min-h-screen bg-[var(--color-base)] text-[var(--color-text)] transition-colors duration-300">
       <div className="max-w-3xl mx-auto px-6 py-24">
@@ -71,7 +71,7 @@ export default function Projects() {
 
         <div>
           {projects.map((project, index) => (
-            <FadeIn key={index} delay={index * 0.04}>
+            <FadeIn key={project.title} delay={index * 0.04}>
               <div className="py-8 border-b border-[var(--color-muted)]/20 flex gap-6 items-start">
                 <span className="font-light text-5xl text-[var(--color-muted)]/20 select-none w-14 shrink-0 leading-none pt-1">
                   {String(index + 1).padStart(2, '0')}
@@ -94,6 +94,7 @@ export default function Projects() {
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
                     className="w-28 aspect-video object-cover rounded-lg shadow-sm hidden md:block shrink-0"
                   />
                 </div>
