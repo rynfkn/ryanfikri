@@ -1,108 +1,94 @@
-import { Link } from "react-router-dom";
-import {
-    Image, Sun, Moon, Briefcase, Award, FolderOpen, Home as HomeIcon, Menu,
-    X,
-} from "lucide-react";
-
+import { Link, NavLink } from "react-router-dom";
+import { Sun, Moon, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme ? savedTheme === 'dark' : true;
+  });
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    const [isDarkMode, setIsDarkMode] = useState(() => {
-        const savedTheme = localStorage.getItem('theme');
-        return savedTheme ? savedTheme === 'dark' : true;
-    });
-    const [menuOpen, setMenuOpen] = useState(false);
+  const navlinks = [
+    { name: "Profile", href: "/" },
+    { name: "Experience", href: "/experiences" },
+    { name: "Achievements", href: "/achievements" },
+    { name: "Projects", href: "/projects" },
+    { name: "Gallery", href: "/gallery" },
+  ];
 
-    const navlinks = [
-        { name: "Profile", href: "/", icon: HomeIcon },
-        { name: "Experience", href: "/experiences", icon: Briefcase },
-        { name: "Achievements", href: "/achievements", icon: Award },
-        { name: "Projects", href: "/projects", icon: FolderOpen },
-    ];
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDarkMode) {
+      root.classList.remove('light');
+    } else {
+      root.classList.add('light');
+    }
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
 
-    useEffect(() => {
-        const root = document.documentElement;
-        if (isDarkMode) {
-            root.classList.remove('light');
-        }
-        else {
-            root.classList.add('light');
-        }
-        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-    }, [isDarkMode]);
+  return (
+    <nav className="sticky top-0 z-30 flex items-center justify-between px-6 md:px-16 py-4 bg-[var(--color-base)]/95 text-[var(--color-text)] backdrop-blur-sm transition-colors duration-300">
 
-    const toggleDarkMode = () => {
-        setIsDarkMode(prev => !prev);
-    };
-    const toggleMenu = () => setMenuOpen((prev) => !prev);
+      <Link to="/" className="text-xl font-bold select-none tracking-tight">
+        Ry.
+      </Link>
 
-    const LinkIcon = isDarkMode ? Moon : Sun;
+      <div className="hidden lg:flex gap-10">
+        {navlinks.map((link) => (
+          <NavLink
+            key={link.name}
+            to={link.href}
+            end={link.href === "/"}
+            className={({ isActive }) =>
+              `text-xs uppercase tracking-widest font-light transition-colors duration-300 pb-0.5 ${
+                isActive
+                  ? 'text-[var(--color-text)] border-b border-[var(--color-primary)]'
+                  : 'text-[var(--color-muted)] hover:text-[var(--color-text)]'
+              }`
+            }
+          >
+            {link.name}
+          </NavLink>
+        ))}
+      </div>
 
-    return (
-        <nav className="sticky top-0 z-30 flex items-center justify-evenly px-4 sm:px-10 py-4 bg-[var(--color-base)]/95 text-[var(--color-text)] ring-1 ring-black/5 backdrop-blur-sm transition-colors duration-300">
+      <div className="flex items-center gap-4">
+        <button
+          onClick={() => setIsDarkMode(prev => !prev)}
+          className="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors duration-300"
+          title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+        >
+          {isDarkMode ? <Moon size={18} /> : <Sun size={18} className="text-yellow-400" />}
+        </button>
 
-            <Link
-                to='/'
-                className="text-2xl font-extrabold select-none">
-                Ry.
-            </Link>
+        <button
+          onClick={() => setMenuOpen(prev => !prev)}
+          className="lg:hidden text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors duration-300"
+        >
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
 
-            <div className="hidden lg:flex gap-8 text-md font-semibold tracking-wide">
-                {navlinks.map((link) => (
-                    <a
-                        key={link.name}
-                        href={link.href}
-                        className="relative group text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors duration-300"
-                    >
-                        {link.name}
-                        <span className="absolute bottom-[-5px] left-0 w-full h-[2px] bg-gradient transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
-                    </a>
-                ))}
-            </div>
-
-            <div className="flex items-center gap-6 text-xl">
-                <a
-                    href="/gallery"
-                    className="p-2 rounded-full text-[var(--color-muted)] hover:text-[var(--color-text)] hover:bg-black/10 transition-colors duration-300"
-                    title="Gallery"
-                >
-                    <Image size={20} />
-                </a>
-
-                <button
-                    onClick={toggleDarkMode}
-                    className="p-2 rounded-full text-[var(--color-muted)] hover:text-[var(--color-text)] hover:bg-black/10 transition-colors duration-300 active:scale-95"
-                    title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-                >
-                    {isDarkMode ? <Moon size={20} /> : <Sun size={20} className="text-yellow-400" />}
-                </button>
-
-                <button
-                    onClick={toggleMenu}
-                    className="lg:hidden p-2 rounded-full text-[var(--color-muted)] hover:text-[var(--color-text)] hover:bg-black/10 transition duration-300"
-                    title="Menu"
-                >
-                    {menuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-            </div>
-
-            {menuOpen && (
-                <div className="absolute top-full left-0 w-full bg-[var(--color-base)]/95 border-t border-gray-300 dark:border-gray-800 flex flex-col items-center gap-6 py-6 lg:hidden animate-slide-down transition-colors duration-300">
-                    {navlinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            onClick={() => setMenuOpen(false)}
-                            className="flex items-center gap-3 text-[var(--color-muted)] hover:text-[var(--color-text)] text-lg transition-all duration-200"
-
-                        >
-                            <link.icon size={20} />
-                            {link.name}
-                        </a>
-                    ))}
-                </div>
-            )}
-        </nav>
-    );
+      {menuOpen && (
+        <div className="absolute top-full left-0 w-full bg-[var(--color-base)]/95 border-t border-[var(--color-muted)]/20 flex flex-col items-center gap-6 py-8 lg:hidden transition-colors duration-300">
+          {navlinks.map((link) => (
+            <NavLink
+              key={link.name}
+              to={link.href}
+              end={link.href === "/"}
+              onClick={() => setMenuOpen(false)}
+              className={({ isActive }) =>
+                `text-xs uppercase tracking-widest font-light transition-colors duration-300 ${
+                  isActive ? 'text-[var(--color-text)]' : 'text-[var(--color-muted)] hover:text-[var(--color-text)]'
+                }`
+              }
+            >
+              {link.name}
+            </NavLink>
+          ))}
+        </div>
+      )}
+    </nav>
+  );
 }
