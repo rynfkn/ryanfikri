@@ -55,7 +55,7 @@ export default function Experience() {
         {/* Education */}
         <FadeIn>
           <div className="mb-20">
-            <h1 className="text-5xl font-light tracking-tight mb-2">Education</h1>
+            <h2 className="text-5xl font-light tracking-tight mb-2">Education</h2>
             <div className="h-0.5 w-12 bg-gradient mb-12"></div>
 
             <div className="relative pl-6">
@@ -85,7 +85,7 @@ export default function Experience() {
         {/* Experience accordion */}
         <FadeIn delay={0.1}>
           <div>
-            <h1 className="text-5xl font-light tracking-tight mb-2">Experience</h1>
+            <h2 className="text-5xl font-light tracking-tight mb-2">Experience</h2>
             <div className="h-0.5 w-12 bg-gradient mb-12"></div>
 
             <div>
@@ -94,6 +94,8 @@ export default function Experience() {
                   <button
                     className="w-full py-5 flex justify-between items-start text-left cursor-pointer"
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                    aria-expanded={openIndex === index}
+                    aria-controls={`exp-panel-${index}`}
                   >
                     <div>
                       <p className="font-semibold text-lg">{exp.position}</p>
@@ -112,6 +114,8 @@ export default function Experience() {
                   <AnimatePresence initial={false}>
                     {openIndex === index && (
                       <motion.div
+                        id={`exp-panel-${index}`}
+                        role="region"
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}

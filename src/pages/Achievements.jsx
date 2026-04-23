@@ -6,49 +6,49 @@ export default function Achievement() {
       title: "Runner Up — Data Mining",
       event: "Hology 8.0, Brawijaya University",
       year: 2025,
-      descriptioin: "Developed a deep learning-based crowd counting model to estimate the number of people in images. Focused on optimizing accuracy and computational efficiency using advanced convolutional architectures.",
+      description: "Developed a deep learning-based crowd counting model to estimate the number of people in images. Focused on optimizing accuracy and computational efficiency using advanced convolutional architectures.",
       tags: ["Deep Learning", "Machine Learning", "Data Mining", "Computer Vision"],
     },
     {
       title: "Runner Up — Objective Quest",
       event: "Airnology 4.0, Airlangga University",
       year: 2025,
-      descriptioin: "Built a machine learning model to predict prison sentences based on text extracted from legal documents.",
+      description: "Built a machine learning model to predict prison sentences based on text extracted from legal documents.",
       tags: ["NLP", "Machine Learning", "Text Classification"],
     },
     {
       title: "3rd Place — MineToday",
       event: "ITToday, IPB University",
       year: 2025,
-      descriptioin: "Built machine learning models to classify the dropout likelihood of bootcamp participants.",
+      description: "Built machine learning models to classify the dropout likelihood of bootcamp participants.",
       tags: ["Machine Learning", "Data Analysis"],
     },
     {
       title: "3rd Place — Data Science",
       event: "SSF, Sebelas Maret University",
       year: 2025,
-      descriptioin: "Developed an OCR and ensemble machine learning time series pipeline to predict rainfall from historical image data.",
+      description: "Developed an OCR and ensemble machine learning time series pipeline to predict rainfall from historical image data.",
       tags: ["Computer Vision", "OCR", "Machine Learning", "Time Series"],
     },
     {
       title: "Winner — Data Mining",
       event: "Quadrathlon, Informatics ITS",
       year: 2024,
-      descriptioin: "Built a machine learning model to predict YouTuber salaries based on performance metrics.",
+      description: "Built a machine learning model to predict YouTuber salaries based on performance metrics.",
       tags: ["Machine Learning", "Data Analysis"],
     },
     {
       title: "Finalist (Top 3) — Data Quest",
       event: "Data Science Indonesia",
       year: 2025,
-      descriptioin: "Developed a machine learning model to predict bank deposit subscriptions by members.",
+      description: "Developed a machine learning model to predict bank deposit subscriptions by members.",
       tags: ["Machine Learning", "Data Analysis", "Ensemble Learning"],
     },
     {
       title: "Finalist (Top 5) — Data Science",
       event: "SSF, Sebelas Maret University",
       year: 2025,
-      descriptioin: "Built a machine learning model to forecast weather conditions and predict electricity shutdowns.",
+      description: "Built a machine learning model to forecast weather conditions and predict electricity shutdowns.",
       tags: ["Machine Learning", "Time Series", "Classification"],
     },
   ];
@@ -74,7 +74,7 @@ export default function Achievement() {
                 </div>
                 <p className="font-light text-base text-[var(--color-muted)] mb-2">{item.event}</p>
                 <p className="font-light text-sm text-[var(--color-muted)] leading-relaxed mb-3">
-                  {item.descriptioin}
+                  {item.description}
                 </p>
                 <p className="text-xs uppercase tracking-widest text-[var(--color-muted)]">
                   {item.tags.join(' · ')}
