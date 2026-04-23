@@ -18,6 +18,7 @@ function AnimatedRoutes() {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
+        className="min-h-screen"
       >
         <Routes location={location}>
           <Route path="/" element={<Home />} />
