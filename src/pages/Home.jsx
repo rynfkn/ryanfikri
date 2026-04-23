@@ -5,21 +5,21 @@ import FadeIn from "../components/FadeIn";
 import { FaLinkedin, FaGithub, FaInstagram, FaFilePdf } from "react-icons/fa";
 import profilePic from "../assets/Profile_pict.png";
 
+const ROLES = [
+  "AI Engineer",
+  "Software Engineer",
+  "Data Scientist",
+  "Machine Learning Enthusiast",
+];
+
 export default function Home() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [currentRole, setCurrentRole] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [displayText, setDisplayText] = useState("");
 
-  const roles = [
-    "AI Engineer",
-    "Software Engineer",
-    "Data Scientist",
-    "Machine Learning Enthusiast",
-  ];
-
   useEffect(() => {
-    const currentWord = roles[currentRole];
+    const currentWord = ROLES[currentRole];
     const typingSpeed = isDeleting ? 50 : 100;
     const pauseTime = 2000;
 
@@ -83,7 +83,7 @@ export default function Home() {
               <a href="https://instagram.com/rynfkn.re" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity" aria-label="Instagram">
                 <FaInstagram />
               </a>
-              <a href="https://its.id/m/RyanCV2025" target="_blank" className="hover:opacity-60 transition-opacity" aria-label="Download CV">
+              <a href="https://its.id/m/RyanCV2025" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity" aria-label="Download CV">
                 <FaFilePdf />
               </a>
             </div>
