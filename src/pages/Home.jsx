@@ -1,146 +1,110 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import WelcomeSplash from "../components/WelcomeSplash";
-
+import FadeIn from "../components/FadeIn";
 import { FaLinkedin, FaGithub, FaInstagram, FaFilePdf } from "react-icons/fa";
 import profilePic from "../assets/Profile_pict.png";
 
+const ROLES = [
+  "AI Engineer",
+  "Software Engineer",
+  "Data Scientist",
+  "Machine Learning Enthusiast",
+];
+
 export default function Home() {
-    const [showWelcome, setShowWelcome] = useState(true);
-    const [currentRole, setCurrentRole] = useState(0);
-    const [isDeleting, setIsDeleting] = useState(false);
-    const [displayText, setDisplayText] = useState("");
+  const [showWelcome, setShowWelcome] = useState(true);
+  const [currentRole, setCurrentRole] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [displayText, setDisplayText] = useState("");
 
-    const roles = [
-        "AI Engineer",
-        "Software Engineer",
-        "Data Scientist",
-        "Machine Learning Enthusiast"
-    ];
+  useEffect(() => {
+    const currentWord = ROLES[currentRole];
+    const typingSpeed = isDeleting ? 50 : 100;
+    const pauseTime = 2000;
 
-    useEffect(() => {
-        const currentWord = roles[currentRole];
-        const typingSpeed = isDeleting ? 50 : 100;
-        const pauseTime = isDeleting ? 500 : 2000;
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        if (displayText.length < currentWord.length) {
+          setDisplayText(currentWord.slice(0, displayText.length + 1));
+        } else {
+          setTimeout(() => setIsDeleting(true), pauseTime);
+        }
+      } else {
+        if (displayText.length > 0) {
+          setDisplayText(currentWord.slice(0, displayText.length - 1));
+        } else {
+          setIsDeleting(false);
+          setCurrentRole((prev) => (prev + 1) % ROLES.length);
+        }
+      }
+    }, typingSpeed);
 
-        const timer = setTimeout(() => {
-            if (!isDeleting) {
-                if (displayText.length < currentWord.length) {
-                    setDisplayText(currentWord.slice(0, displayText.length + 1));
-                }
-                else {
-                    setTimeout(() => setIsDeleting(true), pauseTime);
-                }
-            }
-            else {
-                if (displayText.length > 0) {
-                    setDisplayText(currentWord.slice(0, displayText.length - 1));
-                }
-                else {
-                    setIsDeleting(false);
-                    setCurrentRole((prev) => (prev + 1) % roles.length);
-                }
-            }
-        }, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, currentRole]);
 
-        return () => clearTimeout(timer);
-    }, [displayText, isDeleting, currentRole, roles]);
+  return (
+    <div className="relative min-h-screen w-full bg-[var(--color-base)] text-[var(--color-text)] transition-colors duration-300">
+      {showWelcome && <WelcomeSplash onComplete={() => setShowWelcome(false)} />}
 
-    return (
-        <div className="relative min-h-screen w-full bg-[var(--color-base)] text-[var(--color-text)] overflow-hidden transition-colors duration-300">
+      {!showWelcome && (
+        <FadeIn>
+          <div className="max-w-3xl mx-auto px-6 py-24">
+            <img
+              src={profilePic}
+              alt="Ryan Fikri Nugraha"
+              className="w-16 h-16 rounded-full object-cover mb-10"
+            />
 
-            {showWelcome && <WelcomeSplash onComplete={() => setShowWelcome(false)} />}
+            <h1 className="text-6xl md:text-7xl font-light tracking-tight leading-none mb-4">
+              RYAN FIKRI<br />NUGRAHA
+            </h1>
 
-            {!showWelcome && (
-                <div className="flex flex-col lg:flex-row w-full min-h-[90vh] px-6 lg:px-0">
-                    <div className="flex items-center justify-center lg:justify-end w-full lg:w-[40%] py-12 lg:py-0">
-                        <div className="relative group">
-                            <div className="w-[280px] h-auto md:w-[350px] md:h-auto rounded-lg  overflow-hidden">
-                                <img
-                                    src={profilePic}
-                                    alt="profile_pict"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                        </div>
-                    </div>
+            <div className="font-mono text-[var(--color-muted)] text-lg mb-6 h-7">
+              {displayText}
+              <span className="animate-pulse">|</span>
+            </div>
 
-                    <div className="flex flex-col justify-center lg:pl-12 xl:pl-16 w-full lg:w-[60%] text-center lg:text-left">
-                        <div className="text-2xl md:text-3xl text-green-400 font-light mb-2">
-                            Hello World!
-                        </div>
+            <p className="font-light text-base text-[var(--color-muted)] leading-relaxed max-w-lg mb-10">
+              Passionate about building intelligent systems and exploring the frontiers of artificial intelligence.
+            </p>
 
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
-                            RYAN FIKRI NUGRAHA
-                        </h1>
+            <p className="text-xs uppercase tracking-widest text-[var(--color-muted)] mb-10">
+              Python · PyTorch · Go · Next.js · React
+            </p>
 
-                        <div className="flex justify-center lg:justify-start text-2xl md:text-3xl lg:text-4xl text-[var(--color-muted)] font-light mb-8 h-12 md:h-14">
-                            {displayText}
-                        </div>
+            <div className="flex gap-5 text-xl text-[var(--color-muted)] mb-10">
+              <a href="https://linkedin.com/in/ryanfkn" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity" aria-label="LinkedIn">
+                <FaLinkedin />
+              </a>
+              <a href="https://github.com/rynfkn" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity" aria-label="GitHub">
+                <FaGithub />
+              </a>
+              <a href="https://instagram.com/rynfkn.re" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity" aria-label="Instagram">
+                <FaInstagram />
+              </a>
+              <a href="https://its.id/m/RyanCV2025" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity" aria-label="Download CV">
+                <FaFilePdf />
+              </a>
+            </div>
 
-                        <p className="text-[var(--color-muted)] text-sm md:text-base lg:text-lg max-w-xl mb-8 leading-relaxed mx-auto lg:mx-0 animate-fade-in-delay">
-                            Passionate about building intelligent systems and exploring the frontiers of artificial intelligence.
-                            Turning complex problems into elegant solutions through code.
-                        </p>
-
-                        <div className="flex gap-6 pt-2 text-3xl md:text-4xl justify-center lg:justify-start">
-                            <a
-                                href="https://linkedin.com/in/ryanfkn"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-[var(--color-muted)] hover:text-blue-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
-                                aria-label="Visit my LinkedIn profile"
-                            >
-                                <FaLinkedin />
-                            </a>
-                            <a
-                                href="https://github.com/rynfkn"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
-                                aria-label="Visit my GitHub profile"
-                            >
-                                <FaGithub />
-                            </a>
-                            <a
-                                href="https://instagram.com/rynfkn.re"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-[var(--color-muted)] hover:text-pink-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
-                                aria-label="Visit my Instagram profile"
-                            >
-                                <FaInstagram />
-                            </a>
-                            <a
-                                href="https://its.id/m/RyanCV2025"
-                                target="_blank"
-                                className="text-[var(--color-muted)] hover:text-red-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95"
-                                aria-label="Download CV"
-                            >
-                                <FaFilePdf />
-                            </a>
-                        </div>
-
-                        <div className="flex flex-col sm:flex-row gap-4 mt-10 justify-center lg:justify-start">
-                            <Link to="/projects">
-                                <button
-                                    className="px-8 py-3 rounded-lg border border-[var(--color-primary)] text-[var(--color-primary)] font-medium tracking-wide transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50"
-                                >
-                                    View Projects
-                                </button>
-                            </Link>
-                            
-                            <a
-                                href="mailto:ryanfikri.re@gmail.com"
-                                className="px-8 py-3 rounded-lg border border-[var(--color-secondary)] text-[var(--color-secondary)] font-medium tracking-wide transition-all duration-300 hover:bg-[var(--color-secondary)] hover:text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]/50"
-                            >
-                                Contact Me
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            )}
-        </div>
-    );
+            <div className="flex gap-8">
+              <Link
+                to="/projects"
+                className="text-xs uppercase tracking-widest font-medium border-b border-[var(--color-primary)] pb-0.5 text-[var(--color-primary)] hover:opacity-70 transition-opacity"
+              >
+                View Projects
+              </Link>
+              <a
+                href="mailto:ryanfikri.re@gmail.com"
+                className="text-xs uppercase tracking-widest font-medium border-b border-[var(--color-secondary)] pb-0.5 text-[var(--color-secondary)] hover:opacity-70 transition-opacity"
+              >
+                Contact Me
+              </a>
+            </div>
+          </div>
+        </FadeIn>
+      )}
+    </div>
+  );
 }
