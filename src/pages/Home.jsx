@@ -5,46 +5,45 @@ import WelcomeSplash from "../components/WelcomeSplash";
 import { FaLinkedin, FaGithub, FaInstagram, FaFilePdf } from "react-icons/fa";
 import profilePic from "../assets/Profile_pict.png";
 
+const roles = [
+    "Data Scientist",
+    "Machine Learning Enthusiast",
+    "AI Engineer",
+];
+
+const contactEmail = "ryanfikri.re@gmail.com";
+const contactSubject = "Portfolio Contact";
+
 export default function Home() {
     const [showWelcome, setShowWelcome] = useState(true);
     const [currentRole, setCurrentRole] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
     const [displayText, setDisplayText] = useState("");
 
-    const roles = [
-        "AI Engineer",
-        "Software Engineer",
-        "Data Scientist",
-        "Machine Learning Enthusiast"
-    ];
-
     useEffect(() => {
         const currentWord = roles[currentRole];
-        const typingSpeed = isDeleting ? 50 : 100;
-        const pauseTime = isDeleting ? 500 : 2000;
+        const isWordComplete = !isDeleting && displayText === currentWord;
+        const isWordDeleted = isDeleting && displayText === "";
+        const typingSpeed = isWordComplete ? 1400 : isDeleting ? 45 : 85;
 
         const timer = setTimeout(() => {
-            if (!isDeleting) {
-                if (displayText.length < currentWord.length) {
-                    setDisplayText(currentWord.slice(0, displayText.length + 1));
-                }
-                else {
-                    setTimeout(() => setIsDeleting(true), pauseTime);
-                }
+            if (isWordComplete) {
+                setIsDeleting(true);
+                return;
             }
-            else {
-                if (displayText.length > 0) {
-                    setDisplayText(currentWord.slice(0, displayText.length - 1));
-                }
-                else {
-                    setIsDeleting(false);
-                    setCurrentRole((prev) => (prev + 1) % roles.length);
-                }
+
+            if (isWordDeleted) {
+                setIsDeleting(false);
+                setCurrentRole((prev) => (prev + 1) % roles.length);
+                return;
             }
+
+            const nextLength = displayText.length + (isDeleting ? -1 : 1);
+            setDisplayText(currentWord.slice(0, nextLength));
         }, typingSpeed);
 
         return () => clearTimeout(timer);
-    }, [displayText, isDeleting, currentRole, roles]);
+    }, [displayText, isDeleting, currentRole]);
 
     return (
         <div className="relative min-h-screen w-full bg-[var(--color-base)] text-[var(--color-text)] overflow-hidden transition-colors duration-300">
@@ -75,7 +74,10 @@ export default function Home() {
                         </h1>
 
                         <div className="flex justify-center lg:justify-start text-2xl md:text-3xl lg:text-4xl text-[var(--color-muted)] font-light mb-8 h-12 md:h-14">
-                            {displayText}
+                            <span className="min-w-[18rem] md:min-w-[24rem] lg:min-w-[30rem]">
+                                {displayText}
+                                <span className="ml-1 inline-block h-8 w-0.5 translate-y-1 bg-[var(--color-primary)] md:h-10" aria-hidden="true" />
+                            </span>
                         </div>
 
                         <p className="text-[var(--color-muted)] text-sm md:text-base lg:text-lg max-w-xl mb-8 leading-relaxed mx-auto lg:mx-0 animate-fade-in-delay">
@@ -122,16 +124,15 @@ export default function Home() {
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4 mt-10 justify-center lg:justify-start">
-                            <Link to="/projects">
-                                <button
-                                    className="px-8 py-3 rounded-lg border border-[var(--color-primary)] text-[var(--color-primary)] font-medium tracking-wide transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50"
-                                >
-                                    View Projects
-                                </button>
+                            <Link
+                                to="/projects"
+                                className="px-8 py-3 rounded-lg border border-[var(--color-primary)] text-[var(--color-primary)] font-medium tracking-wide transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50"
+                            >
+                                View Projects
                             </Link>
                             
                             <a
-                                href="mailto:ryanfikri.re@gmail.com"
+                                href={`mailto:${contactEmail}?subject=${encodeURIComponent(contactSubject)}`}
                                 className="px-8 py-3 rounded-lg border border-[var(--color-secondary)] text-[var(--color-secondary)] font-medium tracking-wide transition-all duration-300 hover:bg-[var(--color-secondary)] hover:text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]/50"
                             >
                                 Contact Me
