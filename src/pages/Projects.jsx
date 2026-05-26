@@ -162,7 +162,7 @@ export default function Projects() {
                                 {project.tags.map((tag) => (
                                     <span
                                         key={tag}
-                                        className="rounded-full bg-[var(--color-primary)]/15 px-3 py-1 text-xs font-medium text-[var(--color-secondary)] ring-1 ring-[var(--color-primary)]/30"
+                                        className="text-sm px-3 py-1 bg-[var(--color-primary)]"
                                     >
                                         {tag}
                                     </span>
